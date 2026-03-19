@@ -49,13 +49,27 @@ public class Main {
 
                 if (isValid) {
                     System.out.println("결과: " + result);
-                    break;
                 }
+
+                while (true) {
+                    System.out.print("더 계산하시겠습니까? (계속: y/Y, 종료: exit): ");
+                    String answer = sc.next();
+
+                    if (answer.equalsIgnoreCase("y")) {
+                        break;
+                    } else if (answer.equalsIgnoreCase("exit")) {
+                        System.out.println("계산기를 종료합니다.");
+                        sc.close();
+                        return;
+                    } else {
+                        System.out.println("잘못된 입력입니다. y/Y 또는 exit만 입력해주세요.");
+                    }
+                }
+
             } catch (InputMismatchException e){
                 System.out.println("숫자를 입력해주세요.");
                 sc.nextLine();
             }
         }
-        sc.close();
     }
 }
