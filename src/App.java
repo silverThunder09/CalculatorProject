@@ -38,10 +38,14 @@ public class App {
             }
 
             while (true) {
-                System.out.print("더 계산하시겠습니까? (계속: y/Y, 종료: exit): ");
+                System.out.print("더 계산하시겠습니까? (계속: y/Y, 첫 번째 결과 삭제 : remove , 종료: exit): ");
                 String answer = sc.next();
 
                 if (answer.equalsIgnoreCase("y")) {
+                    break;
+                }else if(answer.equals("remove")){
+                    calculator.remove();
+                    System.out.println("현재 결과 목록 : " + calculator.getResults());
                     break;
                 } else if (answer.equalsIgnoreCase("exit")) {
                     calculator.setResults(new ArrayList<>());
