@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Calculator {
 
-    List<Integer> results = new ArrayList<>();
+    private List<Integer> results = new ArrayList<>();
 
     public int calculate(int num1, int num2, char operator) {
         int result = 0;
@@ -23,11 +23,11 @@ public class Calculator {
                 break;
 
             case '/':
-                if(num2 == 0) {
+                if (num2 == 0) {
                     System.out.println("나눗셈 연산에서 두번째 정수에 0이 입력될 수 없습니다.");
                     isValid = false;
                 } else {
-                    result = num1 /num2;
+                    result = num1 / num2;
                 }
                 break;
             default:
@@ -42,6 +42,14 @@ public class Calculator {
         }
 
         return result;
+    }
+
+    public List<Integer> getResults() {
+        return results;
+    }
+
+    public void setResults(List<Integer> results) {
+        this.results = results;
     }
 }
 

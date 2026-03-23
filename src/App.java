@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -24,9 +25,9 @@ public class App {
 
                 int result = calculator.calculate(num1, num2, operator);
 
-                if(calculator.results.size() > 0) { // 결과가 저장되었을 때만 출력
+                if (calculator.getResults().size() > 0) { // 결과가 저장되었을 때만 출력
                     System.out.println("결과 : " + result);
-                    System.out.println("저장된 결과 목록: " + calculator.results);
+                    System.out.println("저장된 결과 목록: " + calculator.getResults());
                 }
 
 
@@ -43,6 +44,8 @@ public class App {
                 if (answer.equalsIgnoreCase("y")) {
                     break;
                 } else if (answer.equalsIgnoreCase("exit")) {
+                    calculator.setResults(new ArrayList<>());
+                    System.out.println("결과 목록 초기화 : " + calculator.getResults());
                     System.out.println("계산기를 종료합니다.");
                     sc.close();
                     return;
