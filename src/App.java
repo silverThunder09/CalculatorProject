@@ -25,7 +25,7 @@ public class App {
 
                 int result = calculator.calculate(num1, num2, operator);
 
-                if (calculator.getResults().size() > 0) { // 결과가 저장되었을 때만 출력
+                if (!calculator.getResults().isEmpty()) { // 결과가 저장되었을 때만 출력
                     System.out.println("결과 : " + result);
                     System.out.println("저장된 결과 목록: " + calculator.getResults());
                 }
