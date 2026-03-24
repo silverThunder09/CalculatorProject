@@ -7,7 +7,7 @@ public class App {
 
         Scanner sc = new Scanner(System.in);
 
-        Calculator calculator = new Calculator();
+        ArithmeticCalculator calculator = new ArithmeticCalculator();
 
         while (true) {
             try {

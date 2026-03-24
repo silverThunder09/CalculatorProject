@@ -1,28 +1,35 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Calculator {
+public class ArithmeticCalculator {
 
     private List<Integer> results = new ArrayList<>();
 
-    public int calculate(int num1, int num2, char operator) {
+    public int calculate(int num1, int num2, char op) {
         int result = 0;
         boolean isValid = true;
 
+        Operator operator = Operator.fromSymbol(op);
+
+        if(operator == null){
+            System.out.println("잘못된 연산 기호 입니다.");
+            return result;
+        }
+
         switch (operator) {
-            case '+':
+            case Add:
                 result = num1 + num2;
                 break;
 
-            case '-':
+            case Minus:
                 result = num1 - num2;
                 break;
 
-            case '*':
+            case Multiply:
                 result = num1 * num2;
                 break;
 
-            case '/':
+            case Divide:
                 if (num2 == 0) {
                     System.out.println("나눗셈 연산에서 두번째 정수에 0이 입력될 수 없습니다.");
                     isValid = false;
@@ -30,10 +37,6 @@ public class Calculator {
                     result = num1 / num2;
                 }
                 break;
-            default:
-                System.out.println("잘못된 사칙연산 기호 입니다.");
-                isValid = false;
-
         }
 
 
