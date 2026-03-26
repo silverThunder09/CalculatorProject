@@ -7,26 +7,34 @@ public class App {
 
         Scanner sc = new Scanner(System.in);
 
-        Calculator calculator = new Calculator();
+        ArithmeticCalculator<Double> calculator = new ArithmeticCalculator<>();
 
         while (true) {
             try {
                 System.out.print("첫 번째 숫자를 입력하세요: ");
 
-                int num1 = sc.nextInt();
+                double num1 = sc.nextDouble();
+                if(num1 < 0){
+                    System.out.println("양의 정수만 입력해주세요");
+                    continue;
+                }
 
                 System.out.print("두 번째 숫자를 입력하세요: ");
 
-                int num2 = sc.nextInt();
+                double num2 = sc.nextDouble();
+                if(num2 < 0){
+                    System.out.println("양의 정수만 입력해주세요");
+                    continue;
+                }
 
                 System.out.print("사칙연산 기호를 입력하세요: ");
 
                 char operator = sc.next().charAt(0);
 
-                int result = calculator.calculate(num1, num2, operator);
+                double result = calculator.calculate(num1, num2, operator);
 
-                if (calculator.getResults().size() > 0) { // 결과가 저장되었을 때만 출력
-                    System.out.println("결과 : " + result);
+                if (!calculator.getResults().isEmpty()) { // 결과가 저장되었을 때만 출력
+                    System.out.println("결과값: " + result);
                     System.out.println("저장된 결과 목록: " + calculator.getResults());
                 }
 
