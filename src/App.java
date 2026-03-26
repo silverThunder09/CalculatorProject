@@ -52,8 +52,15 @@ public class App {
                 if (answer.equalsIgnoreCase("y")) {
                     break;
                 }else if(answer.equals("remove")){
-                    calculator.remove();
-                    System.out.println("현재 결과 목록 : " + calculator.getResults());
+
+                    Double removeValue = calculator.remove();
+
+                    if(removeValue != null){
+                        System.out.println("가장 먼저 저장된 결과 : " + removeValue + "를 삭제하였습니다");
+                    }else {
+                        System.out.println("현재 결과 목록 : " + calculator.getResults());
+                    }
+
                     break;
                 } else if (answer.equalsIgnoreCase("exit")) {
                     calculator.setResults(new ArrayList<>());
