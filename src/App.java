@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -33,9 +34,19 @@ public class App {
 
                 double result = calculator.calculate(num1, num2, operator);
 
-                if (!calculator.getResults().isEmpty()) { // 결과가 저장되었을 때만 출력
-                    System.out.println("결과값: " + result);
-                    System.out.println("저장된 결과 목록: " + calculator.getResults());
+                System.out.println("결과값: " + result);
+                System.out.println("저장된 결과 목록: " + calculator.getResults());
+
+                if (calculator.getResults().size() >= 2) { // 결과가 저장되었을 때만 출력
+                    System.out.print("조회할 값: ");
+                    double inquiryValue = sc.nextDouble();
+                    List<Double> filteredResults = calculator.printResultsGreaterThan(inquiryValue);
+
+                    if (filteredResults.isEmpty()) {
+                        System.out.println("조회된 결과값 보다 큰 결과값이 없습니다");
+                    } else {
+                        System.out.println("기준값보다 큰 결과 목록: " + filteredResults);
+                    }
                 }
 
 
