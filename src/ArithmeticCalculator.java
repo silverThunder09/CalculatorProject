@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ArithmeticCalculator<T extends Number>{
 
@@ -55,12 +56,17 @@ public class ArithmeticCalculator<T extends Number>{
         this.results = results;
     }
 
+    public List<Double> printResultsGreaterThan(Double value){
+        return results.stream()
+                .filter(result -> result > value)
+                .collect(Collectors.toList());
+    }
+
     public Double remove() {
         if (!results.isEmpty()) {
             return results.remove(0);
         }
         return null;
     }
-
 }
 
